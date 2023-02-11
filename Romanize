@@ -1,0 +1,16 @@
+Advanced Exercises 101.2 Extracurricular - Exercise 4 - Romanize
+def romanize(X):
+    num = [1,4,5,9,10,40,50,90,100,400,500,900,1000]
+    romans = ['I','IV','V','IX','X','XL','L','XC','C','CD','D','CM','M']  
+    k = 12
+    #print(num[k])
+    romanized = ''
+    while X > 0:
+        if num[k] <= X:
+            #print(num[k])
+            X = X - num[k]
+            #print(X)
+            romanized = romanized + romans[k]
+        else:
+            k = k-1
+    return romanized
