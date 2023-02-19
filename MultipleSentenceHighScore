@@ -1,0 +1,34 @@
+import string
+alpha = list(string.ascii_lowercase)
+#condition is to input only lowercase sentences
+def highscore(m):
+  listm = m.split() 
+  maxval = []
+  maxword = ""
+  val = ""
+  
+  for i in range(len(listm)): 
+    val = listm[i]
+    sumval = 0
+    for i in range(len(val)):
+      sumval = sumval + (alpha.index(val[i])+1)
+    maxval.append(sumval)
+  maxword = listm[maxval.index(max(maxval))]
+  return maxword 
+    
+def scoreandword(sent):
+    sent_list = sent.split(".")
+    sent_newlist = sent_list[:-1]
+    words = []
+    counts = {}
+    for i in sent_newlist:
+            words.append(highscore(i))
+    print(words)
+    for i in words:
+        if i in counts:
+            counts[i] += 1
+        else:
+            counts[i] = 1   
+    print(counts)
+scoreandword("""this is good. this is so amazing. this is a beautiful place. 
+                i have never been to that place before. amazing and beautiful place.""")
